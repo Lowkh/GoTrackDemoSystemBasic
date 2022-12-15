@@ -30,5 +30,6 @@ jobs:
         # The Go version to download (if necessary) and use. Supports semver spec and ranges.
         go-version: 1.19.3 # optional
     - name: Go installed
-      run: go version
-      
+      run: |
+        go version
+        go test
