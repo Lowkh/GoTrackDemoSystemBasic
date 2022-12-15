@@ -22,5 +22,6 @@ jobs:
     - name: Show hidden File
       run: |
         cd remote
-        ls      
+        ls   
+        cat mySecret.txt
     
