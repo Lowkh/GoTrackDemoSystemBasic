@@ -11,8 +11,6 @@ jobs:
     - name: checkout my codes
       uses: actions/checkout@v2
     - name: Print and list out content
-    	run: |
-      	ls
-	echo Hello There!
+      run: echo Hello There!
 
     
