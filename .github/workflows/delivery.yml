@@ -31,7 +31,25 @@ jobs:
           Job -           `${{ github.job }}`
           status -        `${{ job.status }}`
         assignees: Lowkh
+        
+    - if: ${{ success() }}
+      name: Create Upload directory
+      run: mkdir upload
     
+    - name: Prepare Documents
+      run: mv report.xml ./upload
+    
+    - name: Prepare artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: assetDocuments
+        path: upload
+    
+    - name: Download Content
+      uses: actions/download-artifact@v2
+      with:
+        name: assetDocuments
+        
     - name: Validate the Go Codes
       uses: goreleaser/goreleaser-action@v2.6.1
       with:
