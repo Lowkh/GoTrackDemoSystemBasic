@@ -13,7 +13,7 @@ func TestAdd(t *testing.T) {
 
 	result = Add(1, 0)
 
-	if result != 3{
+	if result != 1{
 		t.Errorf("Result was incorrect, got: %d, want: %d.", result, 1)
 	}
 
