@@ -1,5 +1,12 @@
 package calc
 
+import "fmt"
+
+func main(){
+	fmt.Println("Main for delivery")
+}
+
+
 // Add two numbers and return the result.
 func Add(val1, val2 int) int {
 	res := val1 + val2
