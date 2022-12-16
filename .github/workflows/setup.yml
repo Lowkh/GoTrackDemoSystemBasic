@@ -33,6 +33,15 @@ jobs:
       run: |
         go version
         go test -v
+        
+    - name: Install dependencies for GO
+      run: |
+        go get github.com/franela/goblin # Adds package for Goblin testing
+        go get github.com/tebeka/go2xunit # Adds package for conversion
+        go test -v # Command to run go test
+        go test -v | go2xunit > report.xml # run test again and output as report.xml (to show the effect)
+        ls # verify that the report is indeed created
+        
     - if: ${{ failure()}}
       #uses: JasonEtco/create-an-issue@v2
       #env:
@@ -52,3 +61,8 @@ jobs:
           status -        `${{ job.status }}`
         assignees: Lowkh
     
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@v2
+      if: always()
+      with:
+        junit_files: "report.xml"    
