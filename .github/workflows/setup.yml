@@ -32,11 +32,11 @@ jobs:
  
     - name: Install dependencies for GO
       run: |
-        go install github.com/franela/goblin # Adds package for Goblin testing
-        go install github.com/tebeka/go2xunit # Adds package for conversion
-        go test -v # Command to run go test
-        go test -v | go2xunit -output report.xml # run test again and output as report.xml (to show the effect)
-        ls # verify that the report is indeed created
+        go install github.com/franela/goblin 
+        go install github.com/tebeka/go2xunit 
+        go test -v
+        go test -v | go2xunit -output report.xml 
+        ls 
         
     - if: ${{ failure()}}
       #uses: JasonEtco/create-an-issue@v2
