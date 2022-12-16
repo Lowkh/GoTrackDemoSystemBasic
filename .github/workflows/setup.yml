@@ -33,9 +33,9 @@ jobs:
     - name: Install dependencies for GO
       run: |
         go get github.com/franela/goblin 
-        go get github.com/tebeka/go2xunit 
+        go install github.com/jstemmer/go-junit-report/v2@latest
         go test -v
-        go test -v | go2xunit -output report.xml 
+        go test -v | go-junit-report -set-exit-code > report.xml
         ls 
         
     - if: ${{ failure()}}
