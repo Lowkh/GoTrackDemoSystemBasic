@@ -33,3 +33,11 @@ jobs:
       run: |
         go version
         go test -v
+    - if: ${{ failure()}}
+      uses: JasonEtco/create-an-issue@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        filename: .github/template.md
+    
+    
