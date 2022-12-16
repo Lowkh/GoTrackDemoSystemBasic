@@ -35,7 +35,7 @@ jobs:
         go get github.com/franela/goblin 
         go install github.com/jstemmer/go-junit-report/v2@latest
         go test -v
-        go test -v | go-junit-report -set-exit-code > report.xml
+        go test -v | go-junit-report > report.xml
         ls 
         
     - if: ${{ failure()}}
